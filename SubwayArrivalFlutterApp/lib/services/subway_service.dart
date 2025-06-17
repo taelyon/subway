@@ -3,8 +3,10 @@ import 'package:http/http.dart' as http;
 import '../models/arrival_info.dart';
 
 class SubwayService {
+
   // 서울시 열린데이터 광장에서 발급받은 API 키
   static const String _apiKey = '596c69597774616536325742684e64';
+
 
   static Future<List<ArrivalInfo>> fetchArrivalInfo(String station) async {
     final encoded = Uri.encodeComponent(station);
