@@ -34,6 +34,11 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _arrivals = infos.take(2).toList();
     });
+    if (infos.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('도착 정보를 불러올 수 없습니다.')),
+      );
+    }
   }
 
   void _openSettings() async {
