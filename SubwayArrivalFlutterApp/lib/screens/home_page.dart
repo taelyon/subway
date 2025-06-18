@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                 final info = _arrivals[i];
                 return ListTile(
                   title: Text(info.trainLineName),
-                  subtitle: Text(info.arrivalMessage),
+                  subtitle: Text('${info.arrivalMessage} / ${info.arrivalMessage3}'),
                 );
               },
             ),

@@ -4,12 +4,17 @@ import '../models/arrival_info.dart';
 import 'api_key.dart';
 
 class SubwayService {
-
-  static Future<List<ArrivalInfo>> fetchArrivalInfo(String station) async {
+  static Future<List<ArrivalInfo>> fetchArrivalInfo(
+    String station, {
+    int startIndex = 0,
+    int endIndex = 5,
+    String type = 'json',
+    String service = 'realtimeStationArrival',
+  }) async {
     try {
       final encoded = Uri.encodeComponent(station);
       final url = Uri.parse(
-          'https://swopenAPI.seoul.go.kr/api/subway/$subwayApiKey/json/realtimeStationArrival/0/2/$encoded');
+          'https://swopenAPI.seoul.go.kr/api/subway/$subwayApiKey/$type/$service/$startIndex/$endIndex/$encoded');
 
       final response = await http.get(url);
       if (response.statusCode == 200) {
