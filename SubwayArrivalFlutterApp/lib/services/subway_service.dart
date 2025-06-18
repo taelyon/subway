@@ -11,8 +11,8 @@ class SubwayService {
     String type = 'json',
     String service = 'realtimeStationArrival',
   }) async {
+    final encoded = Uri.encodeComponent(station);
     try {
-      final encoded = Uri.encodeComponent(station);
       final url = Uri.parse(
           '$subwayApiBaseUrl/$subwayApiKey/$type/$service/$startIndex/$endIndex/$encoded');
 
