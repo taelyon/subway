@@ -12,9 +12,8 @@ class SubwayService {
     String service = 'realtimeStationArrival',
   }) async {
     try {
-      final encoded = Uri.encodeComponent(station);
       final url = Uri.parse(
-          '$subwayApiBaseUrl/$subwayApiKey/$type/$service/$startIndex/$endIndex/$encoded');
+          '$subwayApiBaseUrl/$subwayApiKey/$type/$service/$startIndex/$endIndex/$station');
 
       final response = await http.get(url);
       if (response.statusCode == 200) {
@@ -26,7 +25,7 @@ class SubwayService {
       }
     } catch (e) {
       print('Error fetching arrival info: $e');
-      print('Request URL: $subwayApiBaseUrl/$subwayApiKey/$type/$service/$startIndex/$endIndex/$encoded');
+      print('Request URL: $subwayApiBaseUrl/$subwayApiKey/$type/$service/$startIndex/$endIndex/$station');
       return [];
     }
   }
