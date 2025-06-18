@@ -4,7 +4,6 @@ import '../models/arrival_info.dart';
 import 'api_key.dart';
 
 class SubwayService {
-
   static Future<List<ArrivalInfo>> fetchArrivalInfo(
     String station, {
     int startIndex = 0,
